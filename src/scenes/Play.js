@@ -147,6 +147,7 @@ class Play extends Phaser.Scene {
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)) {
             this.scene.start("menuScene");
         }
+        this.starfield.tilePositionX -= 2;  // update tile sprite
         this.starfield.tilePositionX -= this.orderSpeed;  // update tile sprite
       
         if (!this.gameOver) {
