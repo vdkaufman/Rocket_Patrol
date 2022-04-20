@@ -5,9 +5,9 @@ class Menu extends Phaser.Scene {
 
     preload() {
         // load audio
-        this.load.audio('sfx_select', './assets/blip_select12.wav');
-        this.load.audio('sfx_explosion', './assets/explosion38.wav');
-        this.load.audio('sfx_rocket', './assets/rocket_shot.wav');
+        this.load.audio('sfx_select', './assets/zapsplat_musical_ice_cream_van_musical_chime_002_43590.mp3');
+        this.load.audio('sfx_explosion', './assets/zapsplat_cartoon_bubble_pop_005_40277.mp3');
+        this.load.audio('sfx_rocket', './assets/zapsplat_cartoon_bubble_002_46660.mp3');
       }
       
     create() {
@@ -15,8 +15,8 @@ class Menu extends Phaser.Scene {
         let menuConfig = {
             fontFamily: 'Courier',
             fontSize: '28px',
-            backgroundColor: '#F3B141',
-            color: '#843605',
+            backgroundColor: '#FFBEFA',
+            color: '#313131',
             align: 'right',
             padding: {
                 top: 5,
@@ -25,14 +25,20 @@ class Menu extends Phaser.Scene {
             fixedWidth: 0
         }
 
+
         // show menu text
         this.add.text(game.config.width/2, game.config.height/2 - borderUISize - 
-        borderPadding, 'ROCKET PATROL', menuConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, game.config.height/2, 'Use ←→ arrows to move & (F) to fire', menuConfig).setOrigin(0.5);
-        menuConfig.backgroundColor = '#00FF00';
-        menuConfig.color = '#000';
+        borderPadding, ' Ice Cream Patrol ', menuConfig).setOrigin(0.5);
+        menuConfig.backgroundColor = '#ACD5FD';
+        menuConfig.color = '#313131';
+        this.add.text(game.config.width/2, game.config.height/2, ' Use ←→ arrows to move ', 
+        menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, game.config.height/2 + borderUISize + 
-        borderPadding, 'Press ← for Novice or → for Expert', menuConfig).setOrigin(0.5);
+        borderPadding, ' Use (F) to throw ice cream ', menuConfig).setOrigin(0.5);
+        menuConfig.backgroundColor = '#FFBEFA';
+        menuConfig.color = '#313131';
+        this.add.text(game.config.width/2, game.config.height/2 + borderUISize + 
+        borderPadding + 45, ' Press ← for Novice or → for Expert ', menuConfig).setOrigin(0.5);
     
         // define keys
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
@@ -42,8 +48,8 @@ class Menu extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(keyLEFT)) {
           // easy mode
           game.settings = {
-            spaceshipSpeed: 2,
-            gameTimer: 60000    
+            spaceshipSpeed: 3,
+            gameTimer: 60000     
           }
           this.sound.play('sfx_select');
           this.scene.start('playScene');    
@@ -51,7 +57,7 @@ class Menu extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(keyRIGHT)) {
           // hard mode
           game.settings = {
-            spaceshipSpeed: 2,
+            spaceshipSpeed: 5,
             gameTimer: 45000    
           }
           this.sound.play('sfx_select');
