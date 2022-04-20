@@ -26,7 +26,6 @@ class Gameover extends Phaser.Scene {
         // define keys
         keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
- 
 
         // show game over text
         this.add.text(game.config.width/2, game.config.height/2 - borderUISize - 
